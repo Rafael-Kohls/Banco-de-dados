@@ -1,12 +1,3 @@
-*******Oberservação:
-
-
-Inseri a Data no formato DD/MM/AAAA, após a inserção percebi e me lembrei quer era AAAA/MM/DD.
-Tentei ddiversas formas de alterar os dados mas não consegui, inclusive gostaria de pedir que isso fosse reforçado
-em aula, Para me tirar essa dúvida. Obrigado!
-
-
-
 1-)
 
 create database DBLOJA;
@@ -125,16 +116,16 @@ INSERT INTO tipospagamento values(3,'Cartao');
 INSERT INTO tipospagamento values(4,'Dinheiro');
 
 
-INSERT INTO venda values(1234,01/05/2022,1,1,29.8);
-INSERT INTO venda values(1235,29/04/2022,2,2,5.47);
-INSERT INTO venda values(1236,01/05/2022,3,3,4.8);
-INSERT INTO venda values(1237,28/04/2022,4,3,29.8);
+INSERT INTO venda values(1234,2022-04-06,1,1,29.8);
+INSERT INTO venda values(1235,2022-04-07,2,2,5.47);
+INSERT INTO venda values(1236,2022-04-12,3,3,4.8);
+INSERT INTO venda values(1237,2022-04-10,4,3,29.8);
 
 
-INSERT INTO itensvenda values(1234,01/05/2022,1,2);
-INSERT INTO itensvenda values(1235,29/04/2022,2,1);
-INSERT INTO itensvenda values(1236,01/05/2022,3,3);
-INSERT INTO itensvenda values(1237,28/04/2022,4,2);
+INSERT INTO itensvenda values(1234,2022-04-06,1,2);
+INSERT INTO itensvenda values(1235,2022-04-07,2,1);
+INSERT INTO itensvenda values(1236,2022-04-12,3,3);
+INSERT INTO itensvenda values(1237,2022-04-10,4,2);
 
 
 
