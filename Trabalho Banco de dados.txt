@@ -1,0 +1,141 @@
+*******Oberservação:
+
+
+Inseri a Data no formato DD/MM/AAAA, após a inserção percebi e me lembrei quer era AAAA/MM/DD.
+Tentei ddiversas formas de alterar os dados mas não consegui, inclusive gostaria de pedir que isso fosse reforçado
+em aula, Para me tirar essa dúvida. Obrigado!
+
+
+
+1-)
+
+create database DBLOJA;
+
+USE DBLOJA;
+
+-----------------------------------------------------------------------------------
+
+2-)
+
+create table produto(
+
+codproduto int	not null,
+
+descricaoproduto varchar(50) not null,
+
+unidade	char(2)	not null,
+
+preco float	not null,
+
+constraint pk_produto primary key (codproduto)
+
+
+
+);
+
+create table cliente(
+
+codcliente	int	not null,
+
+cliente	varchar(50)	not null,
+
+cpf	char(11) not null,
+
+endereco char(30) not null,
+
+constraint pk_cliente primary key (codcliente)
+
+);
+
+
+
+create table tipospagamento (
+
+codtppagamento	int	not null,
+
+descricaotppagamento varchar(20) not null,
+
+constraint pk_codtppagamento primary key (codtppagamento)
+
+);
+
+
+
+create table venda (
+
+nnf int	not null,
+
+dtvenda	date not null,
+
+codcliente int not null,
+
+codtppagamento int not null,
+
+vlvenda	float not null,
+
+constraint pk_venda primary key(nnf, dtvenda),
+
+foreign key (codcliente) references cliente (codcliente),
+
+foreign key (codtppagamento) references tipospagamento (codtppagamento)
+
+);
+
+
+
+create table itensvenda(
+
+nnf int	not null,
+
+dtvenda	date not null,
+
+codproduto int not null,
+
+qtde float not null,
+
+constraint pk_itensvenda primary key (nnf, dtvenda, codproduto),
+
+CONSTRAINT FOREIGN KEY(nnf, dtvenda) references venda (nnf, dtvenda),
+
+constraint foreign key(codproduto) references produto(codproduto)
+
+);
+
+-----------------------------------------------------------------------------------
+
+3-)
+
+INSERT INTO produto values(1,'Leite',12,29.80);
+INSERT INTO produto values(2,'Arroz',1,5.47);
+INSERT INTO produto values(3,'feijão',1,4.8);
+INSERT INTO produto values(4,'Carne','kg',29.80);
+
+
+
+INSERT INTO cliente values(1,'Pedro','1980-3-6','Rua 123');
+INSERT INTO cliente values(2,'Maria','1996-9-5','Rua 456');
+INSERT INTO cliente values(3,'Carla','1996-9-20','Rua 789' );
+INSERT INTO cliente values(4,'Marcos','1976-4-16','Rua 1011' );
+
+
+
+INSERT INTO tipospagamento values(1,'Cartao');
+INSERT INTO tipospagamento values(2,'Dinheiro');
+INSERT INTO tipospagamento values(3,'Cartao');
+INSERT INTO tipospagamento values(4,'Dinheiro');
+
+
+INSERT INTO venda values(1234,01/05/2022,1,1,29.8);
+INSERT INTO venda values(1235,29/04/2022,2,2,5.47);
+INSERT INTO venda values(1236,01/05/2022,3,3,4.8);
+INSERT INTO venda values(1237,28/04/2022,4,3,29.8);
+
+
+INSERT INTO itensvenda values(1234,01/05/2022,1,2);
+INSERT INTO itensvenda values(1235,29/04/2022,2,1);
+INSERT INTO itensvenda values(1236,01/05/2022,3,3);
+INSERT INTO itensvenda values(1237,28/04/2022,4,2);
+
+
+
+
